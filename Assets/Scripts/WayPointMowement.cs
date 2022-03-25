@@ -28,16 +28,16 @@ public class WayPointMowement : MonoBehaviour
     {
         Transform target = _points[_currentPoint];
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
 
         if (transform.position == target.position)
         {
-            _spriteRenderer.flipX = false;
+            _spriteRenderer.flipX = true;
             _currentPoint++;
 
             if (_currentPoint >= _points.Length)
             {
-                _spriteRenderer.flipX = true;
+                _spriteRenderer.flipX = false;
                 _currentPoint = 0;
             }
         }
